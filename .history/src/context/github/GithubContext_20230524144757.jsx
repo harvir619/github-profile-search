@@ -12,21 +12,21 @@ export const GithubProvider = ({ children }) => {
         loading:true
     }
     
-    const [state,dispatch] = useReducer(githubReducer,initialState)
     
-    const fetchUsers = async () => {
+    
+       const fetchUsers = async () => {
         const response = await fetch(`${GITHUB_URL}/users`, {
             headers: {
             Authorization: `token ${GITHUB_TOKEN}`
             }
         }
-        )
+      )
         const data = await response.json()
-           
-        dispatch({ type:'GET_USERS', payload:data })
-    } 
+        setUsers(data)
+        setLoading(false)
+        } 
     
-    return <GithubContext.Provider value={{ users : state.users,loading: state.loading,fetchUsers }}>
+    return <GithubContext.Provider value={{ users,loading,fetchUsers }}>
         {children}
     </GithubContext.Provider>
 }
