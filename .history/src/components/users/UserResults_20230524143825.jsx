@@ -3,7 +3,7 @@ import Spinner from '../layout/Spinner'
 import UserItem from './UserItem'
 import GithubContext from '../../context/github/GithubContext'
 
-function UserResults() {
+function UserResults({users,loading,fetchUsers}) {
   const { users, loading, fetchUsers } = useContext(GithubContext)
 
   useEffect(() => {

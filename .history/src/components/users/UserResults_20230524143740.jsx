@@ -3,8 +3,10 @@ import Spinner from '../layout/Spinner'
 import UserItem from './UserItem'
 import GithubContext from '../../context/github/GithubContext'
 
-function UserResults() {
-  const { users, loading, fetchUsers } = useContext(GithubContext)
+function UserResults({users,loading,fetchUsers}) {
+  const [users, setUsers] = useContext(users)
+  const [loading, setLoading] = useContext(loading)
+  const fetchUsers = useContext(fetchUsers)
 
   useEffect(() => {
         fetchUsers()

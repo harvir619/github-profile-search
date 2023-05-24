@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <GithubProvider>
+      <GithubProvider
       <Router>
         <div className="flex flex-col justify-between h-screen">
           <Navbar />
@@ -26,7 +26,6 @@ function App() {
           <Footer/>
         </div>
         </Router>
-      </GithubProvider>
     </>
   )
 }
