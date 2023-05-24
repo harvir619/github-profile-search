@@ -1,9 +1,16 @@
+import React, { useEffect } from 'react'
 import UserResults from '../components/users/UserResults'
 
 function Home() {
-
-  
-
+    useEffect(() => {
+      fetchUsers()
+    }, [])
+    
+    const fetchUsers = async () => {
+      const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}`)
+      
+      
+    }
     
   return (
       <>
