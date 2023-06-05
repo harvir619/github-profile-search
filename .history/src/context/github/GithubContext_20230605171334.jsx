@@ -34,7 +34,9 @@ export const GithubProvider = ({ children }) => {
         dispatch({ type:'GET_USERS', payload:items })
     } 
     
-    const clearUsers = () => dispatch({type:'CLEAR_USERS'})
+    const clearUsers = async () => {
+        dispatch({type:'CLEAR_USERS'})
+    }
     
     const setLoading = () => dispatch({type:'SET_LOADING'})
     

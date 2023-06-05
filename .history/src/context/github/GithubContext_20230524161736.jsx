@@ -24,21 +24,19 @@ export const GithubProvider = ({ children }) => {
             q: text
         })
         
-        const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
+        const response = await fetch(`${GITHUB_URL}/search/users/?${params}`, {
             headers: {
             Authorization: `token ${GITHUB_TOKEN}`
             }
         }
         )
-        const {items} = await response.json()
-        dispatch({ type:'GET_USERS', payload:items })
+        const data = await response.json()
+        dispatch({ type:'GET_USERS', payload:data })
     } 
-    
-    const clearUsers = () => dispatch({type:'CLEAR_USERS'})
     
     const setLoading = () => dispatch({type:'SET_LOADING'})
     
-    return <GithubContext.Provider value={{ users : state.users,loading: state.loading, searchUsers,clearUsers }}>
+    return <GithubContext.Provider value={{ users : state.users,loading: state.loading,fetchUsers }}>
         {children}
     </GithubContext.Provider>
 }

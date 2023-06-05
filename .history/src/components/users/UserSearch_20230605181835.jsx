@@ -14,7 +14,7 @@ function UserSearch() {
         e.preventDefault()
         
         if (text === '') {
-            setAlert('Please Enter Something', 'error')
+            setAlert('Please enter something', 'error')
             // alert('Please enter something')
         } else {
             

@@ -34,11 +34,13 @@ export const GithubProvider = ({ children }) => {
         dispatch({ type:'GET_USERS', payload:items })
     } 
     
-    const clearUsers = () => dispatch({type:'CLEAR_USERS'})
+    const clearUsers = async () => {
+        dispatch({type:'CLEAR_USERS'})
+    }
     
     const setLoading = () => dispatch({type:'SET_LOADING'})
     
-    return <GithubContext.Provider value={{ users : state.users,loading: state.loading, searchUsers,clearUsers }}>
+    return <GithubContext.Provider value={{ users : state.users,loading: state.loading, searchUsers }}>
         {children}
     </GithubContext.Provider>
 }

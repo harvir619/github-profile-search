@@ -6,7 +6,7 @@ function UserSearch() {
     const [text, setText] = useState('')
     
     const { users, searchUsers, clearUsers } = useContext(GithubContext)
-    const {setAlert} = useContext(AlertContext)
+    const [setAlert] = useContext(AlertContext)
     
     const handleChange = (e) => setText(e.target.value)
     
@@ -14,7 +14,7 @@ function UserSearch() {
         e.preventDefault()
         
         if (text === '') {
-            setAlert('Please Enter Something', 'error')
+            setAlert('Please enter something', 'error')
             // alert('Please enter something')
         } else {
             
