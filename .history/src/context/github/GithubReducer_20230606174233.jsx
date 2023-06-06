@@ -25,8 +25,7 @@ const githubReducer = (state,action) => {
         case 'GET_REPOS':
             return {
                 ...state,
-                repos: action.payload,
-                loading:false
+                repos:action.payload
             }
         default:
             return state
