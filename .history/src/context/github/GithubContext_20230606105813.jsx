@@ -25,32 +25,22 @@ export const GithubProvider = ({ children }) => {
             q: text
         })
         
-        const response = await fetch(`${GITHUB_URL}/search/users?${params}`,
-            {
-                headers: {
-                Authorization: `token ${GITHUB_TOKEN}`
+        const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
+            headers: {
+            Authorization: `token ${GITHUB_TOKEN}`
             }
-        },)
+        }
+        )
         const {items} = await response.json()
         dispatch({ type:'GET_USERS', payload:items })
     } 
     
     //Get single users
-    const getUser = async (login) => {
+    const getUser = async (text) => {
         setLoading()
-        const response = await fetch(`${GITHUB_URL}/users/${login}`,
-            {
-                headers: {
-                    Authorization:`token ${GITHUB_TOKEN}`
-                }
-            },)
-        
-        if (response.status === 404) {
-            window.location = '/notfound'
-        } else {            
-            const data = await response.json()
-            dispatch({ type:'GET_USER', payload:data})
-        }
+        const response = await fetch(`${GITHUB_URL}/users/${text}`)
+        const data = await response.json()
+        dispatch({ type:'GET_USER', payload:data})
     }
     
     const clearUsers = () => dispatch({type:'CLEAR_USERS'})
