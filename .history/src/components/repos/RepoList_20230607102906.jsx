@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import RepoItem from './RepoItem'
 
 function RepoList({repos}) {
   return (
@@ -10,14 +9,16 @@ function RepoList({repos}) {
                   Latest Repositories
               </h2>
               {repos.map((repo) => (
-                  <RepoItem repo={repo} key ={repo.id} />
+                  <div key={repo.id}>
+                      <h3>{repo.name}</h3>
+                  </div>
               ))}
           </div>
       </div>
   )
 }
 
-RepoList.propTypes = {
+RepoList.PropTypes = {
     repos: PropTypes.array.isRequired
 }
 
