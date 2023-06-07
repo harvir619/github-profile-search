@@ -68,6 +68,7 @@ export const GithubProvider = ({ children }) => {
             //help bring all the states from this file
             ...state,
             dispatch,
+            searchUsers,
             clearUsers,
             getUser,
             getRepos
