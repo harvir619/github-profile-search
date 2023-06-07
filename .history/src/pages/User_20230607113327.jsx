@@ -16,14 +16,11 @@ function User() {
 
         const getUserData = async () => {
             const userData = await getUser(params.login)
-            dispatch({ type: 'GET_USER', payload: userData })
-            
-            const userRepoData = await getRepos(params.login)
-            dispatch({type:'GET_REPOS',payload:userRepoData})
+            dispatch({type:'GET_USER',payload:userData})
         }
         
         getUserData()
-    },[dispatch,params.login])
+    },[])
     
     const { name, type, avatar_url,
         location, bio, twitter_username,

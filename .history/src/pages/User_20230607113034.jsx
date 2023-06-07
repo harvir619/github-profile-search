@@ -12,18 +12,12 @@ function User() {
     const params = useParams()
     
     useEffect(()=> {
-        dispatch({ type: 'SET_LOADING' })
-
-        const getUserData = async () => {
-            const userData = await getUser(params.login)
-            dispatch({ type: 'GET_USER', payload: userData })
-            
-            const userRepoData = await getRepos(params.login)
-            dispatch({type:'GET_REPOS',payload:userRepoData})
-        }
+        dispatch({type:'SET_LOADING'})
+        const user =  getUser(params.login)
+        dispatch({ type: 'GET_USER', payload: user })
         
-        getUserData()
-    },[dispatch,params.login])
+        getRepos(params.login)
+    },[])
     
     const { name, type, avatar_url,
         location, bio, twitter_username,

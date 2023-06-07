@@ -38,22 +38,4 @@ export const getUser = async (login) => {
             // dispatch({ type:'GET_USER', payload:data})
             return data
         }
-}
-    
-//Get Users Repo
-export const getRepos = async (login) => {
-    // setLoading()
-    const params = new URLSearchParams({
-        sort: 'created',
-        per_page:10
-    })
-    const response = await fetch(`${GITHUB_URL}/users/${login}/repos?${params}`,
-        {
-            headers: {
-                Authorization: `token ${GITHUB_TOKEN}`
-            }
-        })
-    const data = await response.json()
-    // dispatch({ type:'GET_REPOS', payload:data})
-    return data
-}
+    }

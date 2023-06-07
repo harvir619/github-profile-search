@@ -21,9 +21,9 @@ export const searchUsers = async (text) => {
     return items
 } 
 
-//Get single users
+     //Get single users
 export const getUser = async (login) => {
-        // setLoading()
+        setLoading()
         const response = await fetch(`${GITHUB_URL}/users/${login}`,
             {
                 headers: {
@@ -35,25 +35,6 @@ export const getUser = async (login) => {
             window.location = '/notfound'
         } else {            
             const data = await response.json()
-            // dispatch({ type:'GET_USER', payload:data})
-            return data
+            dispatch({ type:'GET_USER', payload:data})
         }
-}
-    
-//Get Users Repo
-export const getRepos = async (login) => {
-    // setLoading()
-    const params = new URLSearchParams({
-        sort: 'created',
-        per_page:10
-    })
-    const response = await fetch(`${GITHUB_URL}/users/${login}/repos?${params}`,
-        {
-            headers: {
-                Authorization: `token ${GITHUB_TOKEN}`
-            }
-        })
-    const data = await response.json()
-    // dispatch({ type:'GET_REPOS', payload:data})
-    return data
-}
+    }

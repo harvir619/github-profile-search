@@ -16,6 +16,7 @@ function UserSearch() {
         
         if (text === '') {
             setAlert('Please Enter Something', 'error')
+            // alert('Please enter something')
         } else {
             dispatch({type:'SET_LOADING'})
             const users= await searchUsers(text)
@@ -51,7 +52,7 @@ function UserSearch() {
               <div>
                   <button
                       className="btn btn-ghost btn-lg"
-                      onClick={()=>dispatch({type:'CLEAR_USERS'})}>
+                      onClick={clearUsers}>
                   Clear
               </button>
               </div>
